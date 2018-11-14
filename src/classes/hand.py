@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from typing import List
 
 from .card import Card
 from .number import Number
@@ -34,7 +35,7 @@ class Hand:
         return score
 
     @property
-    def cards(self):
+    def cards(self) -> List[Card]:
         """
         Returns the card in the hand
         :return:
@@ -44,6 +45,14 @@ class Hand:
     @property
     def is_dealer(self):
         return self.__dealer
+
+    @property
+    def first_card(self):
+        """
+        Returns the first card in the hand
+        :return: first card in the hand
+        """
+        return self.cards[0]
 
     def add_card(self, card: Card):
         """
