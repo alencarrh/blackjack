@@ -23,6 +23,9 @@ class Suit(Enum):
     def name(self):
         return self._value_["name"]
 
+    def __eq__(self, other):
+        return self.id == other.id
+
     def __repr__(self):
         return self.__str__()
 

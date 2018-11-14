@@ -1,33 +1,28 @@
 # -*- coding: utf-8 -*-
-from src.classes import Deck
+from random import randint
 
-deck = Deck()
+from src.classes import Deck, Hand
 
-
-def print_deck(deck: Deck):
-    brank_in = 5
-    i = 1
-    for card in deck.cards:
-        print(card, end="\n" if i % brank_in == 0 else ", ")
-        i += 1
-    print()
-
-
-print_deck(deck)
-
+deck = Deck(1)
 deck.shuffle()
-print("\n\nThe deck was shuffled\n\n")
+deck.cut(randint(1, deck.cards_left() - deck.cards_left() / 4))
 
-print_deck(deck)
+user_hand = Hand()
 
-deck.cut(30)  # there are 52 cards
+user_hand.add_card(deck.pop_card())
+print(user_hand)
 
-print("\n\nThe deck was cut\n\n")
+user_hand.add_card(deck.pop_card())
+print(user_hand)
 
-print_deck(deck)
+user_hand.add_card(deck.pop_card())
+print(user_hand)
 
-print("\n\n")
-print(deck.get_card())
-print(deck.get_card())
-print(deck.get_card())
-print(deck.get_card())
+user_hand.add_card(deck.pop_card())
+print(user_hand)
+
+user_hand.add_card(deck.pop_card())
+print(user_hand)
+
+user_hand.add_card(deck.pop_card())
+print(user_hand)
